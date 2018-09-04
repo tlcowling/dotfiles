@@ -4,12 +4,16 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 " }}}
+set rtp+=~/.fzf
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " {{{ Specials
 set mouse=a
 set backspace=indent,eol,start
 set nocompatible            " be iMproved, required
 set paste                   " paste without side effects
-filetype off                " required
+set laststatus=2
+set timeoutlen=50
+filetype on                " required
 filetype plugin indent on   " required
 syntax enable
 " }}}
@@ -17,9 +21,7 @@ syntax enable
 colorscheme badwolf
 " }}}
 " Spaces and Tabs {{{
-set tabstop=4
-set softtabstop=4
-set expandtab
+set tabstop=2 shiftwidth=2 expandtab
 " }}}
 " UI Config {{{
 set number                  " show line numbers
@@ -122,12 +124,13 @@ call vundle#begin()
 "
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 " Track the engine.
 "Plugin 'SirVer/ultisnips'
 call vundle#end()            " required
